@@ -28,5 +28,18 @@ public class Library {
         throw new Exception("Book not found.");
     }
 
-   
+    public void returnBook(String isbn) throws Exception {
+        for (Book book : books) {
+            if (book.getIsbn().equals(isbn)) {
+                if (!book.isAvailable()) {
+                    book.setAvailable(true);
+                    return;
+                } else {
+                    throw new Exception("Book was not borrowed.");
+                }
+            }
+        }
+        throw new Exception("Book not found.");
+    }
+
 }
