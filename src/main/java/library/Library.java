@@ -14,6 +14,19 @@ public class Library {
         books.add(book);
     }
 
-    
+    public void borrowBook(String isbn) throws Exception {
+        for (Book book : books) {
+            if (book.getIsbn().equals(isbn)) {
+                if (book.isAvailable()) {
+                    book.setAvailable(false);
+                    return;
+                } else {
+                    throw new Exception("Book is already borrowed.");
+                }
+            }
+        }
+        throw new Exception("Book not found.");
+    }
+
    
 }
