@@ -41,5 +41,13 @@ public class LibraryTest {
             library.borrowBook("1111111111"); // Book not in the library
         });
     }
-Implement the 'add book' method in library class to pass the test
+
+    @Test
+    public void testReturnBookSuccessfully() throws Exception {
+        library.addBook(book1);
+        library.borrowBook("1234567890");
+        library.returnBook("1234567890");
+        assertTrue(book1.isAvailable());
+    }
+
 }
