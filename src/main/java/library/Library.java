@@ -42,4 +42,14 @@ public class Library {
         throw new Exception("Book not found.");
     }
 
+    public List<Book> viewAvailableBooks() {
+        List<Book> availableBooks = new ArrayList<>();
+        for (Book book : books) {
+            if (book.isAvailable()) {
+                availableBooks.add(book);
+            }
+        }
+        return availableBooks;
+    }
+
 }
