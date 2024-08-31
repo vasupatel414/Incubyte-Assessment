@@ -50,4 +50,12 @@ public class LibraryTest {
         assertTrue(book1.isAvailable());
     }
 
+    @Test
+    public void testViewAvailableBooks() {
+        library.addBook(book1);
+        library.addBook(book2);
+        List<Book> availableBooks = library.viewAvailableBooks();
+        assertEquals(2, availableBooks.size());
+    }
+
 }
