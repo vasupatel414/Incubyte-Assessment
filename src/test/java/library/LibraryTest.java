@@ -28,4 +28,18 @@ public class LibraryTest {
         assertEquals("1234567890", availableBooks.get(0).getIsbn());
     }
 
+    @Test
+    public void testBorrowBookSuccessfully() throws Exception {
+        library.addBook(book1);
+        library.borrowBook("1234567890");
+        assertFalse(book1.isAvailable());
+    }
+
+    @Test
+    public void testBorrowUnavailableBook() {
+        assertThrows(Exception.class, () -> {
+            library.borrowBook("1111111111"); // Book not in the library
+        });
+    }
+Implement the 'add book' method in library class to pass the test
 }
